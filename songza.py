@@ -28,4 +28,7 @@ def play_station(num_code, cookies=None):
     play_station(num_code, cookies=cookies)
 
 if __name__ == "__main__":
-    play_station(sys.argv[1])
+    try:
+        play_station(sys.argv[1])
+    except KeyboardInterrupt:
+        sys.exit(0)
