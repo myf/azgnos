@@ -16,9 +16,9 @@ def play_station(num_code, cookies=None):
         response = requests.get(url, headers=headers)
         cookies = response.cookies
     response_json = json.loads(response.text)
+    import ipdb; ipdb.set_trace()
     listen_url = response_json['listen_url']
     song = response_json['song']
-    #{u'album': u'Genesis', u'status': u'ADD', u'title': u'Genesis', u'artist': {u'name': u'Grimes'}, u'cover_url': u'http://images.musicnet.com/albums/064/478/333/a.jpeg', u'duration': 255, u'formats': [{u'available': True, u'format': u'aac'}, {u'available': True, u'format': u'mp3'}], u'genre': u'Electronica/Dance', u'new': False, u'id': 18617187, u'added_by': None}
 
     print "song is %s by %s" % (song[u'title'], song[u'artist'][u'name'])
     cookie_str = ":".join(map(str, cookies.items()[0]))
